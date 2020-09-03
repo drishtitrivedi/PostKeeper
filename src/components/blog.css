@@ -1,0 +1,161 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+body {
+  background-color: #e6ffe6 !important;
+}
+
+.alert {
+  font-size: small;
+  padding: 0.45rem 0.25rem !important;
+}
+
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #ffffff;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.remove {
+  color: red !important;
+  font-size: small;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
+  background-color: #ffffff;
+  padding-bottom: 2px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.nav-bar {
+  background-color: #3399ff;
+  height: 50px;
+}
+
+.navbar__link {
+  text-align: center;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 10px 0px 0px 0px;
+  width: max-content;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.navbar__link:hover {
+  text-decoration: none !important;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navbar__link--active {
+  height: 50px;
+  background-color: #ffffff;
+  color: #3399ff;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top: #3399ff 3px outset;
+}
+
+.nav- .nav-scroller .nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-250 {
+  height: 250px;
+}
+@media (min-width: 768px) {
+  .h-md-250 {
+    height: 250px;
+  }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+  border-radius: 2rem;
+}
+
+/*
+   * Blog posts
+   */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: 0.25rem;
+  font-size: 2rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #999;
+}
+
+/*
+   * Footer
+   */
+.blog-footer {
+  padding: 2.5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 0.05rem solid #e5e5e5;
+}
+.blog-footer p:last-child {
+  margin-bottom: 0;
+}
