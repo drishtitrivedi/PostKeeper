@@ -1,7 +1,7 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
 body {
-  background-color: #e6ffe6 !important;
+  background-image: url("../images/blog-post.jpg");
 }
 
 .alert {
@@ -10,18 +10,7 @@ body {
 }
 
 .blog-header {
-  line-height: 1;
   border-bottom: 1px solid #e5e5e5;
-  background-color: #ffffff;
-}
-
-.blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: 2.25rem;
-}
-
-.blog-header-logo:hover {
-  text-decoration: none;
 }
 
 h1,
@@ -50,45 +39,44 @@ h6 {
 }
 
 .remove {
-  color: red !important;
+  color: teal !important;
   font-size: small;
-  font-weight: bold;
   cursor: pointer;
 }
 
 .container {
-  background-color: #ffffff;
+  background-color: white;
   padding-bottom: 2px;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 14px;
+  opacity: 1;
 }
 
 .nav-bar {
-  background-color: #3399ff;
+  background-color: #333;
   height: 50px;
+  margin-left: 10px;
 }
 
 .navbar__link {
+  color: #f2f2f2;
   text-align: center;
-  color: #ffffff;
+  padding: 14px 16px;
+  text-decoration: none;
   font-size: 17px;
-  padding: 10px 0px 0px 0px;
+  padding: 15px 10px 0px 10px;
   width: max-content;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar__link:hover {
   text-decoration: none !important;
-  color: #ffffff;
-  font-weight: bold;
+  background-color: #ddd;
+  color: black;
 }
 
 .navbar__link--active {
-  height: 50px;
-  background-color: #ffffff;
-  color: #3399ff;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top: #3399ff 3px outset;
+  background-color: #d42304;
 }
 
 .nav- .nav-scroller .nav {
@@ -139,11 +127,11 @@ h6 {
 }
 .blog-post-title {
   margin-bottom: 0.25rem;
-  font-size: 2rem;
+  font-size: 20px;
 }
 .blog-post-meta {
   margin-bottom: 1.25rem;
-  color: #999;
+  color: #2f4f4f;
 }
 
 /*
@@ -158,4 +146,17 @@ h6 {
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 768px) and (-webkit-device-pixel-ratio: 3) {
+  .action {
+    margin: 5px;
+  }
+}
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+  .action {
+    margin: 5px;
+  }
 }

@@ -11,8 +11,7 @@ class Header extends Component {
       <React.Fragment>
         <header className="blog-header py-3">
           <div className="row flex-nowrap justify-content-between align-items-center">
-            <div className="col-4 pt-1"></div>
-            <div className="col-4 text-center">
+            <div className="col-12 text-center">
               <span className="blog-header-logo text-dark">
                 <img src={logo} alt="logo" />
               </span>
@@ -23,25 +22,26 @@ class Header extends Component {
 
         <div className="py-1 mb-2">
           <div className="nav-bar row">
-            <div className="col-sm-2">
-              <nav className="nav justify-content-between">
-                <NavLink
-                  activeClassName="navbar__link--active"
-                  className="navbar__link"
-                  to="/newpost"
-                >
-                  Create
-                </NavLink>
-                <NavLink
-                  activeClassName="navbar__link--active"
-                  className="navbar__link"
-                  to="/posts"
-                >
-                  View Posts
-                </NavLink>
-              </nav>
-            </div>
-            <div className="col-sm-10"></div>
+            {/* <div className="col-sm-2"> */}
+            <nav className="nav justify-content-between">
+              <NavLink
+                activeClassName="navbar__link--active"
+                className="navbar__link"
+                to="/newpost"
+              >
+                Create
+              </NavLink>
+
+              <NavLink
+                activeClassName="navbar__link--active"
+                className="navbar__link"
+                to="/posts"
+              >
+                Posts
+              </NavLink>
+            </nav>
+            {/* </div> */}
+            {/* <div className="col-sm-10"></div> */}
           </div>
         </div>
       </React.Fragment>

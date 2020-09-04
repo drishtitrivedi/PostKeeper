@@ -12,6 +12,7 @@ class CommentForm extends Component {
     errors: {},
   };
 
+  // define schema to validate fields
   schema = {
     post_id: Joi.number().required(),
     reply_name: Joi.string().required().label("Reply Name"),
@@ -26,6 +27,7 @@ class CommentForm extends Component {
     this.setState({ data });
   }
 
+  // validate fields against schema
   validate = () => {
     const options = {
       abortEarly: false,
@@ -39,6 +41,7 @@ class CommentForm extends Component {
     return errors;
   };
 
+  // property validation
   validateProperty = ({ name, value }) => {
     const obj = { [name]: value };
     const schema = { [name]: this.schema[name] };
@@ -46,6 +49,7 @@ class CommentForm extends Component {
     return error ? error.details[0].message : null;
   };
 
+  // handling on change event
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
     const errorMessage = this.validateProperty(input);
@@ -58,6 +62,7 @@ class CommentForm extends Component {
     this.setState({ data, errors });
   };
 
+  // render input dynamically
   renderInput(name, label, type, placeholder) {
     const { data, errors } = this.state;
     return (
@@ -80,6 +85,7 @@ class CommentForm extends Component {
     );
   }
 
+  // submit comment and save for desired post
   handleSubmit = (e) => {
     e.preventDefault();
     const errors = this.validate();

@@ -8,12 +8,14 @@ class PostForm extends Component {
     errors: {},
   };
 
+  // define schema to validate fields
   schema = {
     author_name: Joi.string().required().label("Author Name"),
     author_email: Joi.string().email().required().label("Author Email"),
     body: Joi.string().required().min(10).required().label("Post Content"),
   };
 
+  // field validation against schema
   validate = () => {
     const options = {
       abortEarly: false,
@@ -27,6 +29,7 @@ class PostForm extends Component {
     return errors;
   };
 
+  // validate each property
   validateProperty = ({ name, value }) => {
     const obj = { [name]: value };
     const schema = { [name]: this.schema[name] };
@@ -34,6 +37,7 @@ class PostForm extends Component {
     return error ? error.details[0].message : null;
   };
 
+  // handling change event for each property
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
     const errorMessage = this.validateProperty(input);
@@ -46,6 +50,7 @@ class PostForm extends Component {
     this.setState({ data, errors });
   };
 
+  // rander input fields dynamically
   renderInput(name, label, type, placeholder) {
     const { data, errors } = this.state;
     return (
@@ -68,6 +73,7 @@ class PostForm extends Component {
     );
   }
 
+  // handle submit, validate form and save post
   handleSubmit = (e) => {
     e.preventDefault();
     const errors = this.validate();
@@ -82,7 +88,7 @@ class PostForm extends Component {
     const { data, errors } = this.state;
     return (
       <React.Fragment>
-        <h2> Create Post</h2>
+        <h4> Create Post</h4>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("author_name", "Author Name", "text", "")}
           {this.renderInput(

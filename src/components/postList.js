@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CommentForm from "./commentForm";
 import CommentsView from "./commentView";
+// Get sample reply from pre-saved file
 import { getReply } from "../services/comments";
 
 class PostList extends Component {
@@ -9,37 +10,38 @@ class PostList extends Component {
     comments: [],
   };
 
+  // save replies as state
   componentDidMount = () => {
     const comments = getReply();
     this.setState({ comments });
   };
 
+  // get reply(comments) based on post Id
   getComments = (id) => {
     let { comments } = this.state;
     comments = comments.filter((c) => c.post_id === id);
     return comments;
   };
 
+  // maintain status for displaying reply form
   submitReply = () => {
     this.setState({ display: false });
   };
 
+  // Delete reply
   deleteComment = (comment) => {
     const comments = this.state.comments.filter((c) => c.id !== comment.id);
     this.setState({ comments });
   };
 
+  // get reply form on click of 'Reply' button
   render() {
     const Reply = ({ postId }) => {
       const [showResults, setShowResults] = React.useState(false);
-      let icon = <i className="fa fa-commenting-o" aria-hidden="true"></i>;
+      const [reply, setReply] = React.useState("Reply");
       const onClick = () => {
-        icon = showResults ? (
-          <i className="fa fa-commenting-o" aria-hidden="true"></i>
-        ) : (
-          <i class="fa fa-times" aria-hidden="true"></i>
-        );
         showResults ? setShowResults(false) : setShowResults(true);
+        reply === "Reply" ? setReply("Cancel") : setReply("Reply");
       };
       return (
         <div>
@@ -48,7 +50,7 @@ class PostList extends Component {
             className="btn-sm btn-primary"
             onClick={onClick}
           >
-            Reply {icon}
+            {reply}
           </button>
 
           {showResults ? (
@@ -61,32 +63,36 @@ class PostList extends Component {
       );
     };
 
+    // display replies(comments) under each post
     const Results = ({ postId }) => {
       return <CommentForm postId={postId} onSubmit={this.submitReply} />;
     };
 
     const { posts, onDelete } = this.props;
+    // sort posts from newest to oldest
+    posts.sort((a, b) => b.id - a.id);
 
     return (
       <React.Fragment>
         {posts.map((post) => (
           <div className="blog-post" key={post.id}>
-            <h5 className="blog-post-title">By {post.author_name}</h5>
+            <p className="blog-post-title">By {post.author_name}</p>
             <p className="blog-post-meta">
-              <span>{post.author_email}</span>
+              <span className="font-italic">{post.author_email}</span>
             </p>
             <p>{post.body}</p>
+            <div className="row p-2"></div>
             <div className="row p-3">
-              <div className="col col-md-11">
+              <div className="col-11 action" style={{ float: "left" }}>
                 <Reply postId={post.id} />
               </div>
-              <div className="col col-sm-1">
+              <div className="col-1 action" style={{ float: "left" }}>
                 <button
                   type="button"
                   className="btn-sm btn-danger"
                   onClick={() => onDelete(post)}
                 >
-                  <i className="fa fa-trash" aria-hidden="true"></i>
+                  Delete
                 </button>
               </div>
             </div>
