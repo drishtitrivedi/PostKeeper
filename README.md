@@ -1,3 +1,5 @@
+Screenshot:
+![screenshot](https://github.com/drishtitrivedi/PostKeeper/blob/8ec9cc39f38fa9cebad9ea233997ff321fb14015/src/images/screenshot.png)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
